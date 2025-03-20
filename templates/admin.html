@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <nav class="bg-sky-700 text-center font-bold text-2xl text-yellow-300 p-4">
+        FORM MANAGEMENT SYSTEM - ADMIN PANEL
+    </nav>
+    <section class="flex flex-row items-start justify-center">
+        <ul class="font-medium flex flex-col items-start justify-center absolute top-0 left-0  w-56 bg-sky-700 text-white p-6 text-sm">
+            <li class="mt-4 mb-4"><h1 class="font-semibold text-yellow-300">FORM LIST</h1></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/student_registration" class="hover:underline">Student Registration</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/event_registration" class="hover:underline">Event Registration</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/employee_registration" class="hover:underline">Employee Registration</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/workshop_registration" class="hover:underline">Workshop Registration</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/general_contact" class="hover:underline">General Contact</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/support_ticket" class="hover:underline">Support Ticket</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/customer_inquiry" class="hover:underline">Customer Inquiry</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/online_order" class="hover:underline">Online Order</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/product_checkout" class="hover:underline">Product Checkout</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/subscribers" class="hover:underline">Subscrption Payment</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/customer_feedback" class="hover:underline">Customer Feedback</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/employee_satisfaction" class="hover:underline">Employee Satisfaction</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/market_research" class="hover:underline">Market Research</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/job_application" class="hover:underline">Job Application</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/loan_application" class="hover:underline">Loan Application</a></li>
+            <li class="mb-4 hover:bg-sky-900"><a href="/scholarship_application " class="hover:underline">Scholarship Application</a></li>
+        </ul>
+        <div class="ml-64 w-full p-6">
+            {% block content %} 
+           
+            {% endblock %}
+        </div>
+    </section>
+</body>
+</html>

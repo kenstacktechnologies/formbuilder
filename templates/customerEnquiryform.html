@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Inquiry Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-[#F5DEB3]">
+    <div class="bg-white p-6 mb-5 rounded-lg shadow-lg w-full max-w-2xl mt-12">
+        <img src="{{ url_for('static', filename='images/header/brownheader.jpg') }}" alt="Inquiry Header" class="h-24 w-full object-cover rounded-lg">
+        <h2 class="text-2xl font-bold text-center text-white bg-yellow-600 py-3 rounded-t-lg mt-2">Customer Inquiry Form</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="text-center m-2 bg-{{ 'yellow' if category == 'success' else 'red' }}-100 border border-{{ 'yellow' if category == 'success' else 'red' }}-400 text-{{ 'yellow' if category == 'success' else 'red' }}-700 px-4 py-3 rounded relative my-3">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form class="space-y-4 mt-4" action="{{ url_for('submit_inquiry') }}" method="POST">
+            <div class="border rounded-lg p-5 shadow-md">
+                <label for="fullname" class="block text-[#8B4513] font-semibold">Full Name *</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter Your Full Name" class="w-full p-2 border-b-2 border-[#D2B48C] bg-transparent outline-none focus:border-[#8B4513]" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label for="email" class="block text-[#8B4513] font-semibold">Email *</label>
+                <input type="email" id="email" name="email" placeholder="Enter Your Email" class="w-full p-2 border-b-2 border-[#D2B48C] bg-transparent outline-none focus:border-[#8B4513]" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label for="phone" class="block text-[#8B4513] font-semibold">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter Your Phone Number" class="w-full p-2 border-b-2 border-[#D2B48C] bg-transparent outline-none focus:border-[#8B4513]" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label for="product_service" class="block text-[#8B4513] font-semibold">Product/Service *</label>
+                <input type="text" id="product_service" name="product_service" placeholder="Enter Product or Service" class="w-full p-2 border-b-2 border-[#D2B48C] bg-transparent outline-none focus:border-[#8B4513]" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label for="message" class="block text-[#8B4513] font-semibold">Message *</label>
+                <textarea id="message" name="message" placeholder="Enter Your Message" class="w-full p-2 border-b-2 border-[#D2B48C] bg-transparent outline-none focus:border-[#8B4513]" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-[#D2B48C] text-white py-3 text-lg rounded-lg hover:bg-[#C0A080] focus:outline-none focus:ring-2 focus:ring-[#D2B48C] focus:ring-offset-2 transition duration-300 ease-in-out">Send Inquiry</button>
+        </form>
+    </div>
+</body>
+</html>

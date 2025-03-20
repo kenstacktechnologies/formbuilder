@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Order Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-red-50">
+    <div class="bg-white p-6 mb-5 rounded-lg shadow-lg w-full max-w-2xl mt-12">
+        <img src="{{ url_for('static', filename='images/header/redheader.jpg') }}" alt="Order Header" class="h-24 w-full object-cover rounded-lg">
+        <h2 class="text-2xl font-bold text-center text-white bg-red-600 py-3 rounded-t-lg mt-2">Online Order Form</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="text-center m-2 bg-{{ 'red' if category == 'success' else 'yellow' }}-100 border border-{{ 'red' if category == 'success' else 'yellow' }}-400 text-{{ 'red' if category == 'success' else 'yellow' }}-700 px-4 py-3 rounded relative my-3">
+                        {{ message }}   
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form class="space-y-4 mt-4" action="{{ url_for('submit_order') }}" method="POST">
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-red-700 font-semibold">Full Name *</label>
+                <input type="text" name="fullname" placeholder="Enter Your Full Name" class="w-full p-2 border-b-2 border-red-500 bg-transparent outline-none focus:border-red-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-red-700 font-semibold">Email *</label>
+                <input type="email" name="email" placeholder="Enter Your Email" class="w-full p-2 border-b-2 border-red-500 bg-transparent outline-none focus:border-red-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-red-700 font-semibold">Phone Number *</label>
+                <input type="tel" name="phone" placeholder="Enter Your Phone Number" class="w-full p-2 border-b-2 border-red-500 bg-transparent outline-none focus:border-red-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-red-700 font-semibold">Shipping Address *</label>
+                <input type="text" name="address" placeholder="Enter Shipping Address" class="w-full p-2 border-b-2 border-red-500 bg-transparent outline-none focus:border-red-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-red-700 font-semibold">Product Name *</label>
+                <input type="text" name="product" placeholder="Enter Product Name" class="w-full p-2 border-b-2 border-red-500 bg-transparent outline-none focus:border-red-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-red-700 font-semibold">Quantity *</label>
+                <input type="number" name="quantity" min="1" placeholder="Enter Quantity" class="w-full p-2 border-b-2 border-red-500 bg-transparent outline-none focus:border-red-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-red-700 font-semibold">Payment Method *</label>
+                <select name="payment_method" class="w-full p-2 border-b-2 border-red-500 bg-transparent outline-none focus:border-red-700" required>
+                    <option value="" disabled selected>Select Payment Method</option>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="cod">Cash on Delivery</option>
+                </select>
+            </div>
+
+            <button type="submit" class="w-full bg-red-600 text-white py-3 text-lg rounded-lg hover:bg-red-700 transition">Place Order</button>
+        </form>
+    </div>
+</body>
+</html>

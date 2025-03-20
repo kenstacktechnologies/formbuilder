@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-green-50">
+    <div class="bg-white p-6 mb-5 rounded-lg shadow-lg w-full max-w-2xl mt-12">
+        <img src="{{ url_for('static', filename='images/header/greenheader.jpg') }}" alt="Workshop Header" class="h-24 w-full object-cover rounded-lg">
+        
+        <h2 class="text-2xl font-bold text-center text-white bg-green-600 py-3 rounded-t-lg mt-2">Workshop Registration</h2>
+
+        <!-- Display Flask Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="text-center m-2 bg-{{ 'green' if category == 'success' else 'red' }}-100 border border-{{ 'green' if category == 'success' else 'red' }}-400 text-{{ 'green' if category == 'success' else 'red' }}-700 px-4 py-3 rounded relative my-3">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- Workshop Registration Form -->
+        <form action="/workshop_registration_form" method="POST" class="space-y-4 mt-4">
+            <div class="border rounded-lg p-5 shadow-md">
+                <label for="fullname" class="block text-green-700 font-semibold">Full Name *</label>
+                <input type="text" name="fullname" placeholder="Enter Your Full Name" class="w-full p-2 border-b-2 border-green-500 bg-transparent outline-none focus:border-green-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label for="email" class="block text-green-700 font-semibold">Email *</label>
+                <input type="email" name="email" placeholder="Enter Your Email" class="w-full p-2 border-b-2 border-green-500 bg-transparent outline-none focus:border-green-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label for="phone" class="block text-green-700 font-semibold">Phone Number *</label>
+                <input type="tel" name="phone" placeholder="Enter Your Phone Number" class="w-full p-2 border-b-2 border-green-500 bg-transparent outline-none focus:border-green-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label for="workshop_name" class="block text-green-700 font-semibold">Workshop Name *</label>
+                <input type="text" name="workshop_name" placeholder="Enter Workshop Name" class="w-full p-2 border-b-2 border-green-500 bg-transparent outline-none focus:border-green-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label for="preferred_date" class="block text-green-700 font-semibold">Preferred Date *</label>
+                <input type="date" name="preferred_date" class="w-full p-2 border-b-2 border-green-500 bg-transparent outline-none focus:border-green-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label for="payment_status" class="block text-green-700 font-semibold">Payment Status *</label>
+                <select name="payment_status" class="w-full p-2 border-b-2 border-green-500 bg-transparent outline-none focus:border-green-700" required>
+                    <option value="" disabled selected>Select Payment Status</option>
+                    <option value="paid">Paid</option>
+                    <option value="pending">Pending</option>
+                    <option value="not_paid">Not Paid</option>
+                </select>
+            </div>
+
+            <button class="w-full bg-green-600 text-white py-3 text-lg rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition duration-300 ease-in-out">
+                Register
+            </button>
+        </form>
+    </div>
+</body>
+</html>

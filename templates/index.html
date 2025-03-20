@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="flex flex-row items-center justify-between p-4 bg-orange-600">
+        <h1 class="text-4xl font-semibold text-white">FORM BUILDER</h1>
+        <div class="flex items-center justify-between ">
+            <a class="text-white mr-6" href="#">Home</a>
+            <a class="text-white mr-6" href="#about">About</a>
+            <a class="text-white mr-6" href="#contactus">Contact Us</a>
+            <a class="text-white mr-6" href="/admin_login">Admin</a>
+        </div>
+    </nav>
+    <section class=" flex flex-col items-center justify-start mt-12 p-6">
+        <div class="text-center text-6xl font-bold  p-8">
+            All types of FORMS that You Need! 
+        </div>
+        <p class="max-w-6xl bg-gray-100 text-center text-blue-900 p-12 text-2xl rounded-md shadow-lg">We believe the right form can transform your workflow. Simplify tasks with powerful forms that feature conditional logic, payment processing, report generation, and workflow automation.</p>
+    </section>
+
+    <h1 class="text-center mt-12  text-4xl font-bold bg-gray-100 p-4">Powerful forms get it done.</h1>
+
+    <section class="min-h-screen bg-gray-100 p-4">
+        <h1 class="text-3xl font-semibold text-center p-4">Registration Forms</h1>
+
+        <div class="flex items-center justify-around gap-8 p-4">
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/Student.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Student Registration Form</p>
+                </div>
+                <div>
+                    <a href="/student_registration_form" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/event.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Event Registration Form</p>
+                </div>
+                <div>
+                    <a href="/event_registration_form" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/emploee.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Employee Registration Form</p>
+                </div>
+                <div>
+                    <a href="/employee_registration_form" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/workshopregistration.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Workshop Registration Form</p>
+                </div>
+                <div>
+                    <a href="/workshop_registration_form" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+            
+        </div>
+        <h1 class="text-3xl font-semibold text-center p-2 mt-12">Contact Forms</h1>
+
+        <div class="flex items-center justify-around gap-8 p-4">
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/contactus.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Contact Form</p>
+                </div>
+                <div>
+                    <a href="/contact_form" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/supportticket.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Support Ticket Form</p>
+                </div>
+                <div>
+                    <a href="/support_ticket_form" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/customerinquiry.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Customer Inquiry Form</p>
+                </div>
+                <div>
+                    <a href="/submit_inquiry" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+        </div>
+        
+        <h1 class="text-3xl font-semibold text-center p-2 mt-12">Order & Payment Forms</h1>
+
+        <div class="flex items-center justify-around gap-8 p-4">
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/onlineorder.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Online Order Form</p>
+                </div>
+                <div>
+                    <a href="/submit_order" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/productcheckout.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Product Checkout Form</p>
+                </div>
+                <div>
+                    <a href="/checkout" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/subscriptionpayment.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Subscription Payment Form</p>
+                </div>
+                <div>
+                    <a href="/subscribe" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+        </div>
+
+        <h1 class="text-3xl font-semibold text-center p-2 mt-12">Survey & Feedback Forms</h1>
+
+        <div class="flex items-center justify-around gap-8 p-4">
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/customerfeedback.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Customer Feedback Form</p>
+                </div>
+                <div>
+                    <a href="/submit_feedback" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/employeesatisfaction.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Employee Satisfaction Form</p>
+                </div>
+                <div>
+                    <a href="/submit_survey" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/marketresearch.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Market Reseach Form</p>
+                </div>
+                <div>
+                    <a href="/submit_research" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+        </div>
+        
+        <h1 class="text-3xl font-semibold text-center p-2 mt-12">Application Forms</h1>
+
+        <div class="flex items-center justify-around gap-8 p-4">
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/jobapplication.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Job Application Form</p>
+                </div>
+                <div>
+                    <a href="/job_application" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{ url_for('static', filename='images/loanapplication.png') }}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Loan Application Form</p>
+                </div>
+                <div>
+                    <a href="loan_application" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+    
+            <div class="flex-col items-center justify-center p-2 pb-4 max-w-72 bg-white rounded-md shadow-lg">
+                <img src="{{url_for('static' , filename='images/scholaeshipapplication.png')}}" alt="event">
+                <div class="p-4 text-lg text-justify">
+                    <p class="text-md font-semibold text-gray-700">Scholarship Application Form</p>
+                </div>
+                <div>
+                    <a href="/scholarship_application" class="bg-gray-800 text-white p-2 rounded-md shadow-lg ml-3">Use Form</a>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Application Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-amber-50">
+    <div class="bg-white p-6 mb-5 rounded-lg shadow-lg w-full max-w-2xl mt-12">
+        <img src="{{ url_for('static', filename='images/header/brownheader.jpg') }}" alt="img" class="h-24 w-full object-cover rounded-lg">
+        <h2 class="text-2xl font-bold text-center text-white bg-amber-600 py-3 rounded-t-lg mt-2">Scholarship Application Form</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="p-4 mt-3 ">
+                    {% for category, message in messages %}
+                        <p class="text-center text-{{ 'red' if category == 'error' else 'green' }}-600 font-semibold">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('scholarship_application') }}" method="POST" class="space-y-4 mt-4">
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-amber-700 font-semibold">Full Name *</label>
+                <input type="text" name="full_name" placeholder="Enter Your Full Name" class="w-full p-2 border-b-2 border-amber-500 bg-transparent outline-none focus:border-amber-700 rounded-md" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-amber-700 font-semibold">Email *</label>
+                <input type="email" name="email" placeholder="Enter Your Email" class="w-full p-2 border-b-2 border-amber-500 bg-transparent outline-none focus:border-amber-700 rounded-md" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-amber-700 font-semibold">Phone Number *</label>
+                <input type="tel" name="phone_number" pattern="[0-9]{10}" placeholder="Enter Your Phone Number (10 digits)" class="w-full p-2 border-b-2 border-amber-500 bg-transparent outline-none focus:border-amber-700 rounded-md" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-amber-700 font-semibold">Course Name *</label>
+                <input type="text" name="course_name" placeholder="Enter Course Name" class="w-full p-2 border-b-2 border-amber-500 bg-transparent outline-none focus:border-amber-700 rounded-md" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-amber-700 font-semibold">University Name *</label>
+                <input type="text" name="university_name" placeholder="Enter University Name" class="w-full p-2 border-b-2 border-amber-500 bg-transparent outline-none focus:border-amber-700 rounded-md" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-amber-700 font-semibold">Academic Achievements *</label>
+                <textarea name="academic_achievements" placeholder="Mention any academic achievements" class="w-full p-2 border-b-2 border-amber-500 bg-transparent outline-none focus:border-amber-700 rounded-md" rows="3" required></textarea>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-amber-700 font-semibold">Personal Statement *</label>
+                <textarea name="personal_statement" placeholder="Why should you be selected?" class="w-full p-2 border-b-2 border-amber-500 bg-transparent outline-none focus:border-amber-700 rounded-md" rows="3" required></textarea>
+            </div>
+
+            <button class="w-full bg-amber-600 text-white py-3 text-lg rounded-lg hover:bg-amber-700 transition">Apply for Scholarship</button>
+        </form>
+    </div>
+</body>
+</html>

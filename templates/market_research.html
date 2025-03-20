@@ -1,0 +1,25 @@
+{% extends "admin.html" %}
+
+{% block content %}
+<div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-5xl">
+    <h2 class="text-2xl font-bold text-center text-gray-700 mb-4">Market Research Survey</h2>
+    <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+        <thead>
+            <tr class="bg-gray-200">
+                {% for header in form.headers %}
+                <th class="py-2 px-4 border-b">{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in form.data %}
+            <tr class="border-b hover:bg-gray-100">
+                {% for cell in row %}
+                <td class="py-2 px-4 border-r">{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

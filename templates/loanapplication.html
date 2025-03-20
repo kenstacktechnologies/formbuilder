@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-orange-50">
+    <div class="bg-white p-6 mb-5 rounded-lg shadow-lg w-full max-w-2xl mt-12">
+        <img src="{{ url_for('static', filename='images/header/orangeheader.jpg') }}" alt="img" class="h-24 w-full object-cover rounded-lg">
+        <h2 class="text-2xl font-bold text-center text-white bg-orange-600 py-3 rounded-t-lg mt-2">Loan Application Form</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="p-4 mt-3 ">
+                    {% for category, message in messages %}
+                        <p class="text-center text-{{ 'red' if category == 'error' else 'green' }}-600 font-semibold">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('loan_application') }}" method="POST" class="space-y-4 mt-4">
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-orange-700 font-semibold">Full Name *</label>
+                <input type="text" name="full_name" placeholder="Enter Your Full Name" class="w-full p-2 border-b-2 border-orange-500 bg-transparent outline-none focus:border-orange-700 rounded-md" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-orange-700 font-semibold">Email *</label>
+                <input type="email" name="email" placeholder="Enter Your Email" class="w-full p-2 border-b-2 border-orange-500 bg-transparent outline-none focus:border-orange-700 rounded-md" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-orange-700 font-semibold">Phone Number *</label>
+                <input type="tel" name="phone_number" pattern="[0-9]{10}" placeholder="Enter Your Phone Number (10 digits)" class="w-full p-2 border-b-2 border-orange-500 bg-transparent outline-none focus:border-orange-700 rounded-md" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-orange-700 font-semibold">Loan Amount *</label>
+                <input type="number" name="loan_amount" placeholder="Enter Loan Amount" class="w-full p-2 border-b-2 border-orange-500 bg-transparent outline-none focus:border-orange-700 rounded-md" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-orange-700 font-semibold">Employment Status *</label>
+                <select name="employment_status" class="w-full p-2 border-b-2 border-orange-500 bg-transparent outline-none focus:border-orange-700 rounded-md" required>
+                    <option value="" disabled selected>Select Employment Status</option>
+                    <option value="Employed">Employed</option>
+                    <option value="Self-Employed">Self-Employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                </select>
+            </div>
+
+            <button class="w-full bg-orange-600 text-white py-3 text-lg rounded-lg hover:bg-orange-700 transition">Submit Application</button>
+        </form>
+    </div>
+</body>
+</html>

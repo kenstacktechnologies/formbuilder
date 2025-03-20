@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-indigo-50">
+    <div class="bg-white p-6 mb-5 rounded-lg shadow-lg w-full max-w-2xl mt-12">
+        <img src="{{ url_for('static', filename='images/header/violetheader.jpg') }}" alt="Header Image" class="h-24 w-full object-cover rounded-lg">
+        <h2 class="text-2xl font-bold text-center text-white bg-indigo-600 py-3 rounded-t-lg mt-2">Job Application Form</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="p-4 mt-3 ">
+                    {% for category, message in messages %}
+                        <p class="text-center text-{{ 'red' if category == 'error' else 'green' }}-600 font-semibold">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="{{ url_for('job_application') }}" enctype="multipart/form-data" class="space-y-4 mt-4">
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-indigo-700 font-semibold">Full Name *</label>
+                <input type="text" name="full_name" placeholder="Enter Your Full Name" class="w-full p-2 border-b-2 border-indigo-500 bg-transparent outline-none focus:border-indigo-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-indigo-700 font-semibold">Email *</label>
+                <input type="email" name="email" placeholder="Enter Your Email" class="w-full p-2 border-b-2 border-indigo-500 bg-transparent outline-none focus:border-indigo-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-indigo-700 font-semibold">Phone Number *</label>
+                <input type="tel" name="phone_number" placeholder="Enter Your Phone Number" class="w-full p-2 border-b-2 border-indigo-500 bg-transparent outline-none focus:border-indigo-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-indigo-700 font-semibold">Resume Upload *</label>
+                <input type="file" name="resume_upload" class="w-full p-2 border-b-2 border-indigo-500 bg-transparent outline-none focus:border-indigo-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-indigo-700 font-semibold">Job Position *</label>
+                <input type="text" name="job_position" placeholder="Enter Job Position" class="w-full p-2 border-b-2 border-indigo-500 bg-transparent outline-none focus:border-indigo-700" required>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-indigo-700 font-semibold">Experience *</label>
+                <textarea name="experience" placeholder="Describe Your Experience" class="w-full p-2 border-b-2 border-indigo-500 bg-transparent outline-none focus:border-indigo-700" required></textarea>
+            </div>
+
+            <div class="border rounded-lg p-5 shadow-md">
+                <label class="block text-indigo-700 font-semibold">Cover Letter *</label>
+                <textarea name="cover_letter" placeholder="Write Your Cover Letter" class="w-full p-2 border-b-2 border-indigo-500 bg-transparent outline-none focus:border-indigo-700" required></textarea>
+            </div>
+
+            <button class="w-full bg-indigo-600 text-white py-3 text-lg rounded-lg hover:bg-indigo-700 transition">Apply Now</button>
+        </form>
+    </div>
+</body>
+</html>
