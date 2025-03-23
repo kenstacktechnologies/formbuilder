@@ -2,3 +2,4 @@ Flask
 pymysql
 werkzeug
 Flask-Login
+gunicorn

@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = 'form_builder'
 # Initialize Flask-Login
 login_manager = LoginManager()
 login_manager.init_app(app)
