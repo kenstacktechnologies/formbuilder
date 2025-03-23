@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: formbuilder
+    runtime: python
+    repo: https://github.com/kenstacktechnologies/formbuilder
+    branch: main  # Change if your branch is different
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        value: "your_secret_key"
+      - key: DATABASE_URL
+        value: "your_database_url"
